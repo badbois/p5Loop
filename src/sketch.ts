@@ -102,14 +102,22 @@ function draw() {
     background(244,244, 244)
     noFill()
     translate(width/2, height/2)
+    rotate(PI/2)
     stroke(0,0,0,255)
     ellipse(0,0,width,height)
+    blendMode(DIFFERENCE)
 
     for(let i=0; i< params.Number_Ellipse; i++){
-        stroke(color(0, 0, 0, 255))
+        noStroke()
+        if(i%2==0){
+            fill(color(123, 234, 12))
+        }else{
+            fill(color(234, 12, 123))
+        }
         ellipse(width/4, 0, height/2, 50)
         rotate(radians(360/params.Number_Ellipse))
     }
+    blendMode(BLEND)
     
     
 }
