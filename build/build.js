@@ -1,6 +1,6 @@
 var gui = new dat.GUI();
 var params = {
-    Number_Ellipse: 20,
+    Number_Ellipse: 50,
     Download_Image: function () { return save(); },
 };
 gui.add(params, "Number_Ellipse", 20, 70, 1);

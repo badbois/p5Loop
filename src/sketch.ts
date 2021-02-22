@@ -88,7 +88,7 @@ function draw() {
 
 const gui = new dat.GUI()
 const params = {
-    Number_Ellipse: 20,
+    Number_Ellipse: 50,
     Download_Image: () => save(),
 }
 gui.add(params, "Number_Ellipse", 20, 70, 1)
