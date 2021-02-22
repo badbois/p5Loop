@@ -87,12 +87,38 @@ function draw() {
 // -------------------
 
 const gui = new dat.GUI()
+let rotation=0;
 const params = {
     Number_Ellipse: 50,
+    Rotation:false,
+    Rotation_Speed: 0.1,
+    Colors1_r: 73,
+    Colors1_g: 153,
+    Colors1_b: 45,
+    Colors2_r: 2,
+    Colors2_g: 2,
+    Colors2_b: 105,
+
     Download_Image: () => save(),
 }
+
 gui.add(params, "Number_Ellipse", 20, 70, 1)
 gui.add(params, "Download_Image")
+
+let f0=gui.addFolder('Rotation')
+f0.add(params, "Rotation")
+f0.add(params, "Rotation_Speed", 0.1, 1, 0.1)
+
+let f1=gui.addFolder('Colors 1')
+f1.add(params,"Colors1_r", 0, 255, 1)
+f1.add(params,"Colors1_g", 0, 255, 1)
+f1.add(params,"Colors1_b", 0, 255, 1)
+
+let f2=gui.addFolder('Colors 2')
+f2.add(params,"Colors2_r", 0, 255, 1)
+f2.add(params,"Colors2_g", 0, 255, 1)
+f2.add(params,"Colors2_b", 0, 255, 12)
+
 
 // -------------------
 //       Drawing
@@ -110,12 +136,20 @@ function draw() {
     for(let i=0; i< params.Number_Ellipse; i++){
         noStroke()
         if(i%2==0){
-            fill(color(73, 153, 45,20))
+            fill(color(params.Colors1_r, params.Colors1_g, params.Colors1_b, 20))
         }else{
-            fill(color(2, 2, 105,20))
+            fill(color(params.Colors2_r, params.Colors2_g, params.Colors2_b,20))
         }
-        const p= p5.Vector.fromAngle(i* TAU /params.Number_Ellipse).mult(width/4)
+        let p
+        if(params.Rotation){
+            p= p5.Vector.fromAngle(((i* TAU)+radians(rotation)) /params.Number_Ellipse).mult(width/4)
+            rotation+=params.Rotation_Speed;
+        }else{
+            p= p5.Vector.fromAngle(i* TAU /params.Number_Ellipse).mult(width/4)
+        }
+        
         ellipse(p.x, p.y, width/2)
+
         
     }
     blendMode(BLEND)
