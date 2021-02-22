@@ -1,12 +1,22 @@
+var gui = new dat.GUI();
+var params = {
+    Number_Ellipse: 10,
+    Download_Image: function () { return save(); },
+};
+gui.add(params, "Number_Ellipse", 10, 50, 1);
+gui.add(params, "Download_Image");
 function draw() {
-    background(135, 206, 235);
-    rectMode(CENTER);
-    noStroke();
-    fill(132, 46, 27);
-    rect(width / 2, height * 0.75, 200, 66);
-    fill(186, 196, 200);
-    triangle((width / 2) - 100, (height * 0.75) - 33, (width / 2) + 100, (height * 0.75) - 33, width / 2, height * 0.50);
-    rect(width / 2, (height * 0.75) + 18, 20, 30);
+    ellipseMode(CENTER);
+    background(244, 244, 244);
+    noFill();
+    translate(width / 2, height / 2);
+    stroke(0, 0, 0, 255);
+    ellipse(0, 0, width, height);
+    for (var i = 0; i < params.Number_Ellipse; i++) {
+        stroke(color(0, 0, 0, 255));
+        ellipse(width / 4, 0, height / 2, 50);
+        rotate(radians(360 / params.Number_Ellipse));
+    }
 }
 function setup() {
     p6_CreateCanvas();
