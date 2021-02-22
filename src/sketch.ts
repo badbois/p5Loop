@@ -103,7 +103,7 @@ const params = {
 }
 
 gui.add(params, "Number_Ellipse", 20, 70, 1)
-gui.add(params, "Download_Image")
+
 
 let f0=gui.addFolder('Rotation')
 f0.add(params, "Rotation")
@@ -118,6 +118,8 @@ let f2=gui.addFolder('Colors 2')
 f2.add(params,"Colors2_r", 0, 255, 1)
 f2.add(params,"Colors2_g", 0, 255, 1)
 f2.add(params,"Colors2_b", 0, 255, 12)
+
+gui.add(params, "Download_Image")
 
 
 // -------------------

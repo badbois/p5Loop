@@ -13,7 +13,6 @@ var params = {
     Download_Image: function () { return save(); },
 };
 gui.add(params, "Number_Ellipse", 20, 70, 1);
-gui.add(params, "Download_Image");
 var f0 = gui.addFolder('Rotation');
 f0.add(params, "Rotation");
 f0.add(params, "Rotation_Speed", 0.1, 1, 0.1);
@@ -25,6 +24,7 @@ var f2 = gui.addFolder('Colors 2');
 f2.add(params, "Colors2_r", 0, 255, 1);
 f2.add(params, "Colors2_g", 0, 255, 1);
 f2.add(params, "Colors2_b", 0, 255, 12);
+gui.add(params, "Download_Image");
 function draw() {
     ellipseMode(CENTER);
     background(244, 244, 244);
