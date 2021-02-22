@@ -99,6 +99,7 @@ const params = {
     Colors2_g: 2,
     Colors2_b: 105,
 
+
     Download_Image: () => save(),
 }
 
@@ -128,7 +129,7 @@ gui.add(params, "Download_Image")
 
 function draw() {
     ellipseMode(CENTER)
-    background(244,244, 244)
+    background(234,234, 234)
     noFill()
     translate(width/2, height/2)
     noStroke()

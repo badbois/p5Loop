@@ -27,7 +27,7 @@ f2.add(params, "Colors2_b", 0, 255, 12);
 gui.add(params, "Download_Image");
 function draw() {
     ellipseMode(CENTER);
-    background(244, 244, 244);
+    background(234, 234, 234);
     noFill();
     translate(width / 2, height / 2);
     noStroke();
