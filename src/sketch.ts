@@ -110,9 +110,9 @@ function draw() {
     for(let i=0; i< params.Number_Ellipse; i++){
         noStroke()
         if(i%2==0){
-            fill(color(123, 234, 12))
+            fill(color(73, 153, 45,180))
         }else{
-            fill(color(234, 12, 123))
+            fill(color(2, 2, 105,180))
         }
         ellipse(width/4, 0, height/2, 50)
         rotate(radians(360/params.Number_Ellipse))
