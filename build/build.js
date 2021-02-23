@@ -1,23 +1,25 @@
 var gui = new dat.GUI();
 var params = {
-    N: 8,
+    N: 20,
     Download_Image: function () { return save(); },
 };
-gui.add(params, "N", 2, 16, 1);
+gui.add(params, "N", 2, 60, 1);
 gui.add(params, "Download_Image");
 function draw() {
-    noStroke();
     var N = params.N;
-    background(244, 244, 244);
-    for (var i = 0; i < N * N; i++) {
-        if (N % 2 == 0) {
-            fill(((i + floor(i / N)) % 2) * 255);
-        }
-        else {
-            fill((i % 2) * 255);
-        }
-        rect((i % N) * width / N, (floor(i / N)) * height / N, width / N, height / N);
+    translate(width / 2, height / 2);
+    background("#fdfd96");
+    noFill();
+    stroke("#C8A2C8");
+    strokeWeight(10);
+    var distance = 0.4 * width;
+    rotate(PI / 2);
+    beginShape();
+    for (var i = 0; i < N; i++) {
+        var angle = (i / N) * TWO_PI;
+        vertex(distance * cos(angle), distance * sin(angle));
     }
+    endShape(CLOSE);
 }
 function setup() {
     p6_CreateCanvas();

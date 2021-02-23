@@ -82,7 +82,7 @@ function draw() {
 }*/
 
 //ROSACE
-/*
+
 // -------------------
 //  Parameters and UI
 // -------------------
@@ -159,7 +159,7 @@ function draw() {
     blendMode(BLEND)
     
     
-}*/
+}
 
 //CHESSBOARD
 /*
@@ -196,7 +196,7 @@ function draw() {
 */
 
 //SHAPE
-
+/*
 //
 //  Parameters and UI
 // -------------------
@@ -221,6 +221,7 @@ function draw() {
     stroke("#C8A2C8")
     strokeWeight(10)
     const distance=0.4*width
+    rotate(PI/2)
     beginShape()
     for(let i=0; i<N; i++){
         const angle=(i/N)*TWO_PI
@@ -228,7 +229,7 @@ function draw() {
     }
     endShape(CLOSE) 
 }
-
+*/
 // -------------------
 //    Initialization
 // -------------------
