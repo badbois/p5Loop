@@ -162,7 +162,7 @@ function draw() {
 }*/
 
 //CHESSBOARD
-
+/*
 //
 //  Parameters and UI
 // -------------------
@@ -189,16 +189,14 @@ function draw() {
         }else{
                 fill((i%2)*255)
         }
-            
+
         rect((i%N)*width/N, (floor(i/N))*height/N, width/N, height/N)
     }
-    
-    
 }
-
+*/
 
 //SHAPE
-/*
+
 //
 //  Parameters and UI
 // -------------------
@@ -230,7 +228,7 @@ function draw() {
     }
     endShape(CLOSE) 
 }
-*/
+
 // -------------------
 //    Initialization
 // -------------------
