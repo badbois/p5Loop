@@ -82,6 +82,7 @@ function draw() {
 }*/
 
 //ROSACE
+/*
 // -------------------
 //  Parameters and UI
 // -------------------
@@ -158,7 +159,7 @@ function draw() {
     blendMode(BLEND)
     
     
-}
+}*/
 
 //CHESSBOARD
 /*
@@ -203,6 +204,39 @@ function draw() {
     
 }
 */
+
+//SHAPE
+//
+//  Parameters and UI
+// -------------------
+
+const gui = new dat.GUI()
+const params = {
+    N: 20,
+    Download_Image: () => save(),
+}
+gui.add(params, "N", 2, 60, 1)
+gui.add(params, "Download_Image")
+
+// -------------------
+//       Drawing
+// -------------------
+
+function draw() {
+    const N= params.N
+    translate(width/2,height/2)
+    background("#fdfd96")
+    noFill()
+    stroke("#C8A2C8")
+    strokeWeight(10)
+    const distance=0.4*width
+    beginShape()
+    for(let i=0; i<N; i++){
+        const angle=(i/N)*TWO_PI
+        vertex(distance*cos(angle), distance*sin(angle))
+    }
+    endShape(CLOSE) 
+}
 // -------------------
 //    Initialization
 // -------------------

@@ -1,57 +1,24 @@
 var gui = new dat.GUI();
-var rotation = 0;
 var params = {
-    Number_Ellipse: 50,
-    Rotation: false,
-    Rotation_Speed: 0.1,
-    Colors1_r: 73,
-    Colors1_g: 153,
-    Colors1_b: 45,
-    Colors2_r: 2,
-    Colors2_g: 2,
-    Colors2_b: 105,
+    N: 20,
     Download_Image: function () { return save(); },
 };
-gui.add(params, "Number_Ellipse", 20, 70, 1);
-var f0 = gui.addFolder('Rotation');
-f0.add(params, "Rotation");
-f0.add(params, "Rotation_Speed", 0.1, 1, 0.1);
-var f1 = gui.addFolder('Colors 1');
-f1.add(params, "Colors1_r", 0, 255, 1);
-f1.add(params, "Colors1_g", 0, 255, 1);
-f1.add(params, "Colors1_b", 0, 255, 1);
-var f2 = gui.addFolder('Colors 2');
-f2.add(params, "Colors2_r", 0, 255, 1);
-f2.add(params, "Colors2_g", 0, 255, 1);
-f2.add(params, "Colors2_b", 0, 255, 12);
+gui.add(params, "N", 2, 60, 1);
 gui.add(params, "Download_Image");
 function draw() {
-    ellipseMode(CENTER);
-    background(234, 234, 234);
-    noFill();
+    var N = params.N;
     translate(width / 2, height / 2);
-    noStroke();
-    ellipse(0, 0, width, height);
-    blendMode(DIFFERENCE);
-    for (var i = 0; i < params.Number_Ellipse; i++) {
-        noStroke();
-        if (i % 2 == 0) {
-            fill(color(params.Colors1_r, params.Colors1_g, params.Colors1_b, 20));
-        }
-        else {
-            fill(color(params.Colors2_r, params.Colors2_g, params.Colors2_b, 20));
-        }
-        var p = void 0;
-        if (params.Rotation) {
-            p = p5.Vector.fromAngle(((i * TAU) + radians(rotation)) / params.Number_Ellipse).mult(width / 4);
-            rotation += params.Rotation_Speed;
-        }
-        else {
-            p = p5.Vector.fromAngle(i * TAU / params.Number_Ellipse).mult(width / 4);
-        }
-        ellipse(p.x, p.y, width / 2);
+    background("#fdfd96");
+    noFill();
+    stroke("#C8A2C8");
+    strokeWeight(10);
+    var distance = 0.4 * width;
+    beginShape();
+    for (var i = 0; i < N; i++) {
+        var angle = (i / N) * TWO_PI;
+        vertex(distance * cos(angle), distance * sin(angle));
     }
-    blendMode(BLEND);
+    endShape(CLOSE);
 }
 function setup() {
     p6_CreateCanvas();
