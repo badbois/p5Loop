@@ -160,6 +160,49 @@ function draw() {
     
 }
 
+//CHESSBOARD
+/*
+//
+//  Parameters and UI
+// -------------------
+
+const gui = new dat.GUI()
+const params = {
+    N: 8,
+    Download_Image: () => save(),
+}
+gui.add(params, "N", 2, 16, 1)
+gui.add(params, "Download_Image")
+
+// -------------------
+//       Drawing
+// -------------------
+
+function draw() {
+    noStroke()
+    const N= params.N
+    background(244,244, 244)
+    for(let i=0; i< N*N ;i++){
+        if(N%2==0){
+            if((i+floor(i/N))%2==0){
+                fill("white")
+            }else{
+                fill("black")
+            }
+        }else{
+            if(i%2==0){
+                fill("white")
+            }else{
+                fill("black")
+            }
+        }
+            
+        rect((i%N)*width/N, (floor(i/N))*height/N, width/N, height/N)
+    }
+    
+    
+}
+*/
 // -------------------
 //    Initialization
 // -------------------
