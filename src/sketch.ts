@@ -162,7 +162,7 @@ function draw() {
 }*/
 
 //CHESSBOARD
-/*
+
 //
 //  Parameters and UI
 // -------------------
@@ -185,17 +185,9 @@ function draw() {
     background(244,244, 244)
     for(let i=0; i< N*N ;i++){
         if(N%2==0){
-            if((i+floor(i/N))%2==0){
-                fill("white")
-            }else{
-                fill("black")
-            }
+                fill(((i+floor(i/N))%2)*255)
         }else{
-            if(i%2==0){
-                fill("white")
-            }else{
-                fill("black")
-            }
+                fill((i%2)*255)
         }
             
         rect((i%N)*width/N, (floor(i/N))*height/N, width/N, height/N)
@@ -203,9 +195,10 @@ function draw() {
     
     
 }
-*/
+
 
 //SHAPE
+/*
 //
 //  Parameters and UI
 // -------------------
@@ -237,6 +230,7 @@ function draw() {
     }
     endShape(CLOSE) 
 }
+*/
 // -------------------
 //    Initialization
 // -------------------
